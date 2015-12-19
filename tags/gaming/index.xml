@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gaming on BradiaLabs</title>
-    <link>http://bradialabs.github.io/tags/gaming/</link>
+    <link>http://bradialabs.com/tags/gaming/</link>
     <description>Recent content in Gaming on BradiaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>All rights reserved - 2015</copyright>
     <lastBuildDate>Tue, 08 Dec 2015 18:18:08 -0800</lastBuildDate>
-    <atom:link href="http://bradialabs.github.io/tags/gaming/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://bradialabs.com/tags/gaming/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Create Cocos2d-x 3.0 Beta Project</title>
-      <link>http://bradialabs.github.io/create-cocos2d-x-3-0-beta-project/</link>
+      <link>http://bradialabs.com/create-cocos2d-x-3-0-beta-project/</link>
       <pubDate>Tue, 08 Dec 2015 18:18:08 -0800</pubDate>
       
-      <guid>http://bradialabs.github.io/create-cocos2d-x-3-0-beta-project/</guid>
+      <guid>http://bradialabs.com/create-cocos2d-x-3-0-beta-project/</guid>
       <description>&lt;!--![](http://res.cloudinary.com/bradialabs/image/upload/v1390413067/2dx-logo_wsqnve.png)--&gt;
 
 &lt;p&gt;UPDATE: This has been updated for the 3.0 release. The process for creating a new project has changed slightly since the Beta releases.&lt;/p&gt;

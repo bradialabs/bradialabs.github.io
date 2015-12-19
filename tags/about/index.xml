@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>About on BradiaLabs</title>
-    <link>http://bradialabs.github.io/tags/about/</link>
+    <link>http://bradialabs.com/tags/about/</link>
     <description>Recent content in About on BradiaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>All rights reserved - 2015</copyright>
     <lastBuildDate>Sun, 13 Dec 2015 13:13:27 -0800</lastBuildDate>
-    <atom:link href="http://bradialabs.github.io/tags/about/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://bradialabs.com/tags/about/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>About</title>
-      <link>http://bradialabs.github.io/page/about/</link>
+      <link>http://bradialabs.com/page/about/</link>
       <pubDate>Sun, 13 Dec 2015 13:13:27 -0800</pubDate>
       
-      <guid>http://bradialabs.github.io/page/about/</guid>
+      <guid>http://bradialabs.com/page/about/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;http://res.cloudinary.com/bradialabs/image/upload/v1390433293/photo_neatls.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;My name is Bryan, and I am an Electrical Engineer who loves writing software. I have written software for the electrical industry for 5+ years. In my spare time I like to learn about new technologies and try them out. I have written iPhone games for fun and various web projects.&lt;/p&gt;
