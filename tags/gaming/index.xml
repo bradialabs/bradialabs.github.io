@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gaming on BradiaLabs</title>
+    <link>http://localhost:1313/tags/gaming/</link>
+    <description>Recent content in Gaming on BradiaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>All rights reserved - 2015</copyright>
+    <lastBuildDate>Tue, 08 Dec 2015 18:18:08 -0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/gaming/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Create Cocos2d-x 3.0 Beta Project</title>
+      <link>http://localhost:1313/create-cocos2d-x-3-0-beta-project/</link>
+      <pubDate>Tue, 08 Dec 2015 18:18:08 -0800</pubDate>
+      
+      <guid>http://localhost:1313/create-cocos2d-x-3-0-beta-project/</guid>
+      <description>&lt;!--![](http://res.cloudinary.com/bradialabs/image/upload/v1390413067/2dx-logo_wsqnve.png)--&gt;
+
+&lt;p&gt;UPDATE: This has been updated for the 3.0 release. The process for creating a new project has changed slightly since the Beta releases.&lt;/p&gt;
+
+&lt;p&gt;In this tutorial I will show you how to setup a new cocos2d-x multi-platform project for the recently &lt;a href=&#34;http://www.cocos2d-x.org/download&#34; title=&#34;cocos2d-x 3.0 Beta&#34;&gt;released 3.0 Beta&lt;/a&gt;. Cocos2d-x is the C++ port of the popular &lt;a href=&#34;http://cocos2d-iphone.org&#34;&gt;cocos2d-iphone&lt;/a&gt; 2D game framework. Many popular games were made using the iPhone version of the framework, but it was written in Objective-C and geared towards Apple&amp;rsquo;s mobile OS platform. With Android starting to claim a major share of the mobile market, it is important to create something that can run on multiple platforms easily. Since cocos2d-x is written in cross-platform C++ it can be easily compiled for Mac, iOS, Android, Windows, and even Linux. The first two versions of cocos2d-x tried to follow the design of the iPhone version closely. This made the C++ code follow Objective-C patterns, which didn&amp;rsquo;t always fit very well. The new version 3 is going to redesign the code to use C++ best practices as well as some of the newer C++11 standards. This is a welcome change for the framework and should make it more maintainable and easier to use.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;With this latest update you can now create your game projects in any directory you choose. Previously the projects were created within the cocos2d-x folder downloaded from the site, which made it difficult to upgrade your cocos2d-x version. The new version does make a copy of the entire framework to place in each project you create, so this could use up disk space quickly. The most ideal solution would be to have projects link back to the original source code without having to copy it, but this could get complex and have its own issues. We&amp;rsquo;ll just work with what is available at the movement and setup a new multi-platform project. Go ahead and download the cocos2d-x 3.0 Beta. Open up your terminal and run the provided script from cocos2d-x.&lt;/p&gt;
+
+&lt;p&gt;UPDATE: Cocos2d-x now uses the cocos console system to create projects and even run them too. Use the following commands for cocos2d-x RC0 and above.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd cocos2d-x
+$ ./setup.py
+$ source /Users/Bryan/.bash_profile
+$ cocos new BetaGame -p com.BradiaLabs.BetaGame -l cpp -d /Users/Bryan/Development/BradiaLabs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;the setup.py will help you set the necessary environment variables to develop and build using cocos2d-x. The source command saves them to your user&amp;rsquo;s bash profile. You will only need to run the setup.py the first time you use cocos2d-x 3.0. For future projects you will only need to run the cocos command. The cocos new command will create a new project folder with the name BetaGame at the path /Users/Bryan/Development/BradiaLabs.&lt;/p&gt;
+
+&lt;p&gt;Here is how it was done during the Beta versions of cocos2d-x.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd cocos2d-x/tools/project-creator
+$ ./create_project.py -n BetaGame -k com.BradiaLabs.BetaGame -l cpp -p /Users/Bryan/Development/BradiaLabs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;del&gt;If you are a visual person you can run the script without any arguments and get the dialog box below&lt;/del&gt;. UPDATE: There is no longer a dialog box for the cocos console version of setting up a new project.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://res.cloudinary.com/bradialabs/image/upload/v1389571040/CocosCreateProject_bjqmd9.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Just fill in the information for the game you want to create and this script will create the iOS/Mac, Android, Linux, and Windows projects. We will focus on the iOS and Android projects for this tutorial.&lt;/p&gt;
+
+&lt;p&gt;Find your project folder and open the Xcode project in the proj.ios_mac folder.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://res.cloudinary.com/bradialabs/image/upload/c_scale,w_774/v1390411380/Screen_Shot_2014-01-22_at_9_22_24_AM_jawlqy.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This screen shot shows the new project for our BetaGame. You can try to build the new project, but you may run into errors if you don&amp;rsquo;t have an Apple Developer Account yet. The project template ships with a team already selected within the identity section as seen above. This will be problematic because you can&amp;rsquo;t select none and you won&amp;rsquo;t be able to build the project unless you already have your own team to choose instead. We need to get rid of the cocos2d-x team from the project file. This can be done on a per project basis, or you could edit the template file that is used by cocos2d-x to create new projects. The template file can be found in cocos2d-x/template/multi-platform-cpp/proj.ios_mac/HelloCpp.xcodeproj. I will use our recently created project as an example though. Make sure you close out the project in Xcode. An xcodeproj file is actually a special folder, so we need to see what is inside of it. Hold down control and click the project file. Select the Show Package Contents option. This will show some more files inside of the project. Hold down control and click the project.pbxproj file, then select the Open With option and pick TextEdit to edit the file. Click on Edit then Find in the TextEdit menu. Find the string &amp;ldquo;DevelopmentTeam&amp;rdquo;. Remove all of the text selected in the screen shot below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://res.cloudinary.com/bradialabs/image/upload/v1390446315/Screen_Shot_2014-01-22_at_9_34_58_AM_ctaj5h.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now you can open the project in Xcode again and the Team should say &amp;ldquo;None&amp;rdquo; now. Go ahead and build and run the project. It should start up the simulator and you&amp;rsquo;ll see the image below. UPDATE: cocos adds a new command for building and running your project.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd /path/to/your/BetaGame
+$ cocos run -p iOS
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://res.cloudinary.com/bradialabs/image/upload/c_scale,w_520/v1390447275/Screen_Shot_2014-01-22_at_7_20_49_PM_oqaon4.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Next we will build the project for Android. If you haven&amp;rsquo;t already downloaded it, go ahead and grab the &lt;a href=&#34;http://developer.android.com/sdk/index.html&#34; title=&#34;Android&#34;&gt;Android SDK&lt;/a&gt; and &lt;a href=&#34;http://developer.android.com/tools/sdk/ndk/index.html&#34; title=&#34;NDK&#34;&gt;NDK&lt;/a&gt;. I grabbed the ADT package that includes eclipse and the SDK. Next you will need to open up a command prompt and add some environment variables. Edit your bash profile. UPDATE: These environment variables should have all been entered when you ran the setup.py script. If you hadn&amp;rsquo;t downloaded android yet when you ran it, just re-run setup.py instead of adding the variables manually, but here is how to do it manually just in case.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ pico ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then add the following to the file&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export ANDROID_SDK_ROOT=&amp;quot;path/to/android/sdk&amp;quot;
+export NDK_ROOT=&amp;quot;path/to/android-ndk&amp;quot;
+export PATH=&amp;quot;$ANDROID_SDK_ROOT/platform_tools:$ANDROID_SDK_ROOT/tools:$PATH&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now restart your terminal. Make sure everything is setup correctly. Run the following command.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ android list target
+Available Android targets:
+----------
+id: 1 or &amp;quot;android-17&amp;quot;
+     Name: Android 4.2.2
+     Type: Platform
+     API level: 17
+     Revision: 2
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in
+     ABIs : armeabi-v7a, x86
+----------
+id: 2 or &amp;quot;android-18&amp;quot;
+     Name: Android 4.3
+     Type: Platform
+     API level: 18
+     Revision: 2
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in
+     ABIs : armeabi-v7a, x86
+----------
+id: 3 or &amp;quot;android-19&amp;quot;
+     Name: Android 4.4
+     Type: Platform
+     API level: 19
+     Revision: 1
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in
+     ABIs : armeabi-v7a
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The output will show you the available SDK targets to use. We need to make sure the android project for our game is using one of the targets we have available.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd path/to/your/BetaGame/proj.android
+$ android update project -p . -t android-19
+$ android update project -p ../cocos2d/cocos/2d/platform/android/java/ -t android-19
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The first android update project command will update the android project for you current game. The second one will update the reference java project that your game project references for the cocos2d targets. Now we can build the android project. UPDATE: With the cocos console you can build and run with just this one command.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd /path/to/your/BetaGame
+$ cocos run -p android -j 4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here is the manual way of doing it though.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ./build_native.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now that the project has been built we can run it on a device. Either plug in your Android phone or start up an Android Virtual Device. To start up a virtual device open the device manager and select one to start.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ android avd
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Make sure you have &lt;a href=&#34;http://ant.apache.org&#34; title=&#34;Apache Ant&#34;&gt;Apache Ant&lt;/a&gt; installed and install the game to the device.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ant debug install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You should now see the game running!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://res.cloudinary.com/bradialabs/image/upload/c_scale,w_676/v1390758086/Screen_Shot_2014-01-26_at_9_40_39_AM_avj64n.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now you have a game that will run on both iOS and Android! You can also build it for windows by opening the .sln file in Visual Studio 2012 and Building and Running the solution. I don&amp;rsquo;t have Windows installed on any computers right now, so I can&amp;rsquo;t help much on the Windows front. In future posts we&amp;rsquo;ll start turning this new project into a game!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

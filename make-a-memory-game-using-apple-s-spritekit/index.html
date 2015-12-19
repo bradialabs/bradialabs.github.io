@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Make a Memory game using Apple&#39;s SpriteKit &middot;  BradiaLabs" />
+  	<meta property="og:site_name" content="BradiaLabs" />
+  	<meta property="og:url" content="http://localhost:1313/make-a-memory-game-using-apple-s-spritekit/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2015-12-13T12:45:51-08:00" />
+
+    
+    <meta property="og:article:tag" content="SpriteKit" />
+    
+    <meta property="og:article:tag" content="game" />
+    
+    <meta property="og:article:tag" content="development" />
+    
+    
+
+  <title>
+     Make a Memory game using Apple&#39;s SpriteKit &middot;  BradiaLabs
+  </title>
+
+    <meta name="description" content="Code and Other Fun Stuff" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="http://localhost:1313/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="http://localhost:1313/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="http://localhost:1313/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="http://localhost:1313/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="http://localhost:1313/index.xml" rel="alternate" type="application/rss+xml" title="BradiaLabs" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.15" />
+
+    <link rel="canonical" href="http://localhost:1313/make-a-memory-game-using-apple-s-spritekit/" />
+
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://localhost:1313/page/about/">About</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://localhost:1313/">Blog</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://github.com/bradialabs">Github repos</a>
+            </li>
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="http://localhost:1313/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+<header class="main-header post-head" style="background-image: url(http://res.cloudinary.com/bradialabs/image/upload/c_scale,w_120/v1394084994/Memory-Screen_krcqpf.png)">
+  <nav class="main-nav overlay clearfix">
+
+
+  
+      <a class="blog-logo" href="http://localhost:1313/"><img src="http://localhost:1313/img/logo.png" alt="Home" /></a>
+  
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Make a Memory game using Apple&#39;s SpriteKit</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2015-12-13T12:45:51-08:00">
+            Dec 13, 2015
+          </time>
+        
+         
+          <span class="post-tag small"><a href="http://localhost:1313/tags/spritekit/">#SpriteKit</a></span>
+         
+          <span class="post-tag small"><a href="http://localhost:1313/tags/game/">#game</a></span>
+         
+          <span class="post-tag small"><a href="http://localhost:1313/tags/development/">#development</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      <!--![](http://res.cloudinary.com/bradialabs/image/upload/c_scale,w_120/v1394084994/Memory-Screen_krcqpf.png)-->
+
+<p>I have made games using various versions of cocos2d, but I wanted to take a look at how Apple&rsquo;s SpriteKit game framework works. In this tutorial I will take you through a simple memory game I made to test out SpriteKit. Our game will contain a grid of 9 colored circles. The circles will light up randomly in a sequence, then let the player repeat the sequence. The game will then add on to the sequence each time the player successfully repeats it. This will go on until the player messes up the sequence and the game is over. Simple right? Let&rsquo;s get started!</p>
+
+<!-- more -->
+
+<p>Create a new SpriteKit application.</p>
+
+<p><img src="http://res.cloudinary.com/bradialabs/image/upload/c_scale,w_550/v1392614020/New-SpriteKit_cosrq4.png" alt="" /></p>
+
+<p>And call it Memory (creative, I know&hellip;)</p>
+
+<p><img src="http://res.cloudinary.com/bradialabs/image/upload/c_scale,w_550/v1392614212/New-Memory_ky4mkc.png" alt="" /></p>
+
+<p>Start by adding a new Objective-C class that is a subclass of SKShapeNode.</p>
+
+<p><img src="http://res.cloudinary.com/bradialabs/image/upload/c_scale,w_550/v1392615116/New-Class_adorr1.png" alt="" /></p>
+
+<p><img src="http://res.cloudinary.com/bradialabs/image/upload/c_scale,w_550/v1392615149/New-SKShapeNode_notc3v.png" alt="" /></p>
+
+<p>We will use this new class to create colored circles. The colored circles will be used in a grid as the game board. Let&rsquo;s define the interface for our new class in MemCircle.h</p>
+
+<pre><code>#import &lt;SpriteKit/SpriteKit.h&gt;;
+
+@interface MemCircle : SKShapeNode
+
+@property (nonatomic) int positionBitMask;
+
+-(id)initWithPosition:(int)position inSize:(CGSize)size;
+
+@end
+</code></pre>
+
+<p>There is a postitionBitMask property that will contain a unique identifier for each instance of the MemCircle class. Now define the initialization function used when declaring a new MemCircle. Now we&rsquo;ll go through the implementation of our new class.</p>
+
+<pre><code>#import &quot;MemCircle.h&quot;
+
+@implementation MemCircle
+
+@synthesize positionBitMask;
+
+-(id)initWithPosition:(int)position inSize:(CGSize)size
+{
+    if((self = [super init]))
+    {
+        float red = (arc4random_uniform(60) + 40)/100.0;
+        float green = (arc4random_uniform(60) + 40)/100.0;
+        float blue = (arc4random_uniform(60) + 40)/100.0;
+        CGMutablePathRef newPath = CGPathCreateMutable();
+        CGPathAddArc(newPath, NULL, 0, 0, size.width*0.10, 0, M_PI*2, YES);
+        self.path = newPath;
+        self.lineWidth = 0.05;
+        self.fillColor = [SKColor colorWithRed:red green:green blue:blue alpha:1.0];
+        self.strokeColor = [SKColor colorWithRed:red green:green blue:blue alpha:1.0];
+        self.glowWidth = 0.0;
+
+        self.name = @&quot;button&quot;;
+        self.positionBitMask = 1 &lt;&lt; position;
+    }
+
+    return self;
+}
+
+@end
+</code></pre>
+
+<p>This is a pretty simple class, but we will go over what is going on. First we synthesized our positionBitMask property so we can use it in the class. Next we implemented the initialization function which passes the location of the circle and the size of the board our circles will go on. Our circles should be created with a random color, so we get a random number for the red, green, and blue values. The arc4random_uniform function will return a random number between 1 and the maximum value passed to it. So in our case it will return a number between 1 and 60. We then add 40 to this number so we will end up with a number between 40 and 100. Then we divide it by 100 to get a float value between .40 and 1.0. We pass these values into the fill and stroke colors which will give us a random bright pastel color each time we create a new MemCircle. Since we want to create a circle we make a new path with a radius of 10% of the width of the board it will be placed on and arc length of 2 pi to make a complete circle. We assign this path to our MemCircle class, give it a line width, some color, and a little glow. The node name will be &ldquo;button&rdquo;. The next line is a little different. We take the number one and bit shift it by the position that was passed into the initialization function. This will give us a bit mask for each MemCircle at each different position. If we pass the position 0 then the bit will not be shifted left and the integer value will just be 1. If we pass a position of 1 then the bit will be shifted left by one spot and the integer value will be 2. If we pass a position of 2 then the bit will be shifted left twice giving an integer value of 4, and so on. I will show you how we will use this to identify each individual MemCircle in just a bit.</p>
+
+<p>It is time add our new MemCircle to the screen. The project was created with a default scene in the file MyScene.h and MyScene.m. We need to replace the default code with our own code. Start with the header and replace the code with the following.</p>
+
+<pre><code>#import &lt;SpriteKit/SpriteKit.h&gt;
+
+@interface MyScene : SKScene
+
+@property (nonatomic, strong) NSMutableArray *sequence;
+@property (nonatomic) BOOL userTurn;
+@property (nonatomic) int userSeqStep;
+@property (nonatomic) BOOL gameOver;
+
+@end
+</code></pre>
+
+<p>We&rsquo;ve added some new properties to the scene. We will use a mutable array to store the memory sequence. The array will just store the MemCircle location bit mask value for each entry of the sequence. The userTurn bool will be used to determine if the user&rsquo;s input will be accepted or not. We want to ignore the user while we are showing them the sequence. The userSeqStep value will keep track of where the user is in the sequence so we can line up the MemCircle they are pressing with the one we are expecting them to press for the current position in the sequence. Last we have the gameOver value, which will obviously let us know if the game is over.</p>
+
+<p>Next open up the implementation file MyScene.m. Go ahead and add a line to import the MemCircle.h file and just after that, but before the @implementation we&rsquo;ll define a private interface of functions we will use within the class.</p>
+
+<pre><code>#import &quot;MemCircle.h&quot;
+
+@interface MyScene(Private)
+-(void)continueSequence;
+-(void)nextInSequence:(NSInteger)seqNum;
+@end
+</code></pre>
+
+<p>We will implement these functions later on. After the @implementation line synthesize all of the properties from the header.</p>
+
+<pre><code>@synthesize sequence, userTurn, userSeqStep, gameOver;
+</code></pre>
+
+<p>Now let&rsquo;s replace the default implementation of the initWithSize function. Replace it with this and we&rsquo;ll go through what it is doing.</p>
+
+<pre><code>-(id)initWithSize:(CGSize)size {
+    if (self = [super initWithSize:size]) {
+        /* Setup your scene here */
+
+        self.backgroundColor = [SKColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+
+        for (int i = 0; i &lt; 9; i++) {
+
+            MemCircle *button = [[MemCircle alloc] initWithPosition:i inSize:size];
+
+            if(i &lt; 3)
+            {
+                button.position = CGPointMake(((size.width)*.90*((i+1.0)/3.0)-button.frame.size.width/2),
+                                              ((size.height*.80)/3)-button.frame.size.height/2);
+            }
+            else if (i &lt; 6)
+            {
+                button.position = CGPointMake(((size.width)*.90*((i-2.0)/3.0)-button.frame.size.width/2),
+                                              ((size.height*.80)*(2.0/3.0))-button.frame.size.height/2);
+            }
+            else
+            {
+                button.position = CGPointMake(((size.width)*.90*((i-5.0)/3.0)-button.frame.size.width/2),
+                                              ((size.height*.80))-button.frame.size.height/2);
+            }
+
+            NSLog(@&quot;Adding button at: (%f,%f)&quot;, button.position.x, button.position.y);
+
+            [self addChild:button];
+
+        }
+
+        SKLabelNode *score = [SKLabelNode labelNodeWithFontNamed:@&quot;Marker Felt&quot;];
+        [score setFontSize:self.frame.size.width*0.10];
+        score.text = @&quot;0&quot;;
+        score.position = CGPointMake(self.frame.size.width/2, self.frame.size.height*0.90);
+        score.fontColor = [SKColor colorWithRed:0.23 green:0.56 blue:0.79 alpha:1.0];
+        score.name = @&quot;scoreLabel&quot;;
+        [self addChild:score];
+
+        sequence = [NSMutableArray array];
+        userTurn = NO;
+        userSeqStep = 0;
+        gameOver = NO;
+
+    }
+    return self;
+}
+</code></pre>
+
+<p>First initialize the super SKScene class into our class. Next set the background color to white because white is all the rage in UI design these days. Next setup a loop that will iterate 9 times. We&rsquo;ll use this to place our 9 MemCircle instances in the scene. Each time through allocate a new MemCircle instance using the loop iteration number as the location that way each MemCircle will be uniquely identified. Setup the circles in rows of three, so check to see which row is being processed based off of the iteration number. Each row is separated by the if-else statements in the loop. Each row will be placed at <sup>1</sup>&frasl;<sub>3</sub> intervals of 80% of the total height of the screen. Since the origin of the MemCircles is in the center we also need to subtract half of its radius to make it centered on its respective third of the screen. For each column in a row the circles will be placed at <sup>1</sup>&frasl;<sub>3</sub> intervals of 90% of the screen width. Again remember to subtract the radius, or half the width of the circle, in order to center the circle on its respective third. For debugging purposes I put a logging statement in to see exactly where each circle is being placed. Then make sure to actually add the MemCircle to the scene using the addChild function. Next add the score label to game board. After initializing the game board with all of the MemCircle objects finish up the initialization by initializing the sequence array, setting the userTurn to no, the user&rsquo;s place in the sequence to 0, and gameOver to no. At this point our game is initialized, but won&rsquo;t actually do anything.</p>
+
+<p>I want to show how easy it is to add standard UIKit elements to a SpriteKit game, so I will make our Start button a UIButton object. In order to add UIKit objects you have to wait until the view has been loaded. I implemented the standard didMoveToView function to accomplish this.</p>
+
+<pre><code>-(void) didMoveToView:(SKView *)view
+{
+    UIButton *startBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [startBtn setTitle:@&quot;Start!&quot; forState:UIControlStateNormal];
+    [startBtn setTitle:@&quot;Start!&quot; forState:UIControlStateSelected];
+    [[startBtn titleLabel] setFont:[UIFont fontWithName:@&quot;Marker Felt&quot; size:[view frame].size.width*0.05]];
+    [startBtn setFrame:CGRectMake([view frame].size.width*0.05, [view frame].size.height*0.05,
+                                  [view frame].size.width*0.25, [view frame].size.height*0.10)];
+    [startBtn addTarget:self action:@selector(startBtnPress:) forControlEvents:UIControlEventTouchUpInside];
+    [startBtn setBackgroundColor:[UIColor whiteColor]];
+    [[startBtn titleLabel] setTextColor:[UIColor colorWithRed:0.23 green:0.56 blue:0.79 alpha:1.0]];
+
+    [view insertSubview:startBtn atIndex:[[view subviews] count]];
+    NSLog(@&quot;Adding Button at (%f, %f)&quot;, startBtn.frame.origin.x, startBtn.frame.origin.y);
+}
+</code></pre>
+
+<p>This is standard UIKit stuff here. Create a new button and setup its states. I made the frame for the button dynamic as well as the font size so that it would adjust to the different screen sizes that iOS runs on these days. Add an action target for when the button is pressed and insert it as a subview of the game scene&rsquo;s view. It is that easy to add UIKit objects to your game scene. Next implement the function for the button press action.</p>
+
+<pre><code>-(void)startBtnPress:(id)sender
+{
+    UIButton *startBtn = (UIButton*)sender;
+    [startBtn removeFromSuperview];
+
+    SKAction *wait = [SKAction waitForDuration:2.0];
+    [self runAction:wait completion:^(void){
+        [self continueSequence];
+    }];
+}
+</code></pre>
+
+<p>This is a very simple function. When the start button is pressed it will wait 2 seconds then start running the sequence that the user needs to remember and mimic. We will get into the details of how all that works very soon. I used an SKAction to accomplish the wait functionality. Simply declare an SKAction with the waitForDuration initializer. It takes a float for the number of seconds to wait. The run the action at the scene level and put some code in the completion block to be run when its done. In this case I run the continueSequence function to progress the sequence and play it back for the player.</p>
+
+<p>The player won&rsquo;t be able to do much with our game if we don&rsquo;t give them a way to interact with it. We need to implement some touch detection to find out which MemCircles the player is pressing. To do this simply implement the standard touchesBegan and touchesEnded functions.</p>
+
+<pre><code>-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    /* Called when a touch begins */
+
+    for (UITouch *touch in touches) {
+        //CGPoint location = [touch locationInNode:self];
+        NSArray *nodes = [self nodesAtPoint:[touch locationInNode:self]];
+        for(SKNode *node in nodes)
+        {
+            if([node.name isEqualToString:@&quot;button&quot;])
+            {
+                MemCircle *touchedCircle = (MemCircle*)node;
+                touchedCircle.glowWidth = touchedCircle.frame.size.width/4;
+            }
+        }
+    }
+}
+</code></pre>
+
+<p>When the player touches the screen we need to check to see if it was on one of the MemCircles. Loop through each touch in the touches that were passed to the function. Find any SKNodes at the point of the touch. If the the node&rsquo;s name is &ldquo;button&rdquo; then the player touched one of the MemCircles. Cast the node to a MemCircle and set the glowWidth to a quarter of the size of the circle itself. This will give the player some feedback that they have touched the circle.</p>
+
+<p>Let&rsquo;s look at what happens when the user lifts their finger off the screen.</p>
+
+<pre><code>-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    int touchesMask = 0;
+    for (UITouch *touch in touches) {
+        NSArray *nodes = [self nodesAtPoint:[touch locationInNode:self]];
+        for(SKNode *node in nodes)
+        {
+            if([node.name isEqualToString:@&quot;button&quot;])
+            {
+                MemCircle *touchedCircle = (MemCircle*)node;
+                touchedCircle.glowWidth = 0.0;
+                touchesMask = touchesMask | touchedCircle.positionBitMask;
+            }
+        }
+    }
+
+    if(userTurn == YES &amp;amp;&amp;amp; gameOver != YES)
+    {
+        if(userSeqStep &lt; [sequence count])
+        {
+            NSNumber *nextNum = [sequence objectAtIndex:userSeqStep];
+            int nextIntMask = [nextNum intValue];
+            if(touchesMask != nextIntMask)
+            {
+                gameOver = YES;
+                SKLabelNode *lose = [SKLabelNode labelNodeWithFontNamed:@&quot;Marker Felt&quot;];
+                [lose setFontSize:self.frame.size.width*0.15];
+                lose.text = @&quot;You Lose!&quot;;
+                lose.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+                lose.fontColor = [SKColor colorWithRed:0.23 green:0.56 blue:0.79 alpha:1.0];
+                lose.name = @&quot;loseLabel&quot;;
+                [self addChild:lose];
+
+                return;
+            }
+            if(userSeqStep == [sequence count] - 1)
+            {
+                //update the score
+                SKLabelNode *scoreNode = (SKLabelNode*)[self childNodeWithName:@&quot;scoreLabel&quot;];
+                [scoreNode setText:[NSString stringWithFormat:@&quot;%i&quot;, [sequence count]]];
+
+                //continue the sequence
+                [self continueSequence];
+            }
+            else
+            {
+                userSeqStep++;
+            }
+        }
+    }
+
+    if(gameOver == YES)
+    {
+        NSLog(@&quot;Restarting game...&quot;);
+
+        SKNode *lose = [self childNodeWithName:@&quot;loseLabel&quot;];
+        [lose removeFromParent];
+
+        SKLabelNode *scoreNode = (SKLabelNode*)[self childNodeWithName:@&quot;scoreLabel&quot;];
+        [scoreNode setText:@&quot;0&quot;];
+
+        userTurn = NO;
+        sequence = NULL;
+        sequence = [NSMutableArray array];
+        gameOver = NO;
+        [self continueSequence];
+    }
+}
+</code></pre>
+
+<p>After the player lifts their finger check to see which MemCircle they were touching. Reset the glowWidth so it doesn&rsquo;t look pressed anymore and grab the MemCircle&rsquo;s location bit mask. Next check to see if it is the player&rsquo;s turn and that the game is not over. If we need to process the player&rsquo;s turn then we&rsquo;ll check to see that the player&rsquo;s current place in the sequence is not further then the end of the sequence. If the user has already finished the sequence we&rsquo;ll kick out of this function without doing anything. Next compare the location that the player pressed with the location that was generated for that position in the sequence. We are keeping track of where the player is inside of the sequence using the userSeqStep variable. The sequence is just an array that holds randomly generated integers that correspond to a MemCircle location bit mask. So we grab the location bit mask from the spot in the array that matches the player&rsquo;s current sequence step number. Compare that bit mask to the location bit mask that was pressed by the player. If it matches they got it right! Check to see if they reached the end of the sequence. If they did then let&rsquo;s update the score and add another step to the sequence. If they haven&rsquo;t reached the end of the sequence then increment the userSeqStep and wait for them to keep going. If the bit mask of the MemCircle they pressed does not match the bit mask in the current step of the sequence then it is game over. I set gameOver to YES and created an SKLabelNode that tells them they lost and add it to the scene then kick out of the function. If the game is currently over and they touch the screen again we will go into the last if statement at the bottom. This will reset the game, remove the you lost label, and start a new game.</p>
+
+<p>Now lets look at the heart of the artificial intelligence in our game, the continueSequence function.</p>
+
+<pre><code>-(void)continueSequence
+{
+    userSeqStep = 0;
+    userTurn = NO;
+    int newSeq = arc4random_uniform(8) + 1;
+    NSNumber *newSeqMask = [NSNumber numberWithInt:(1 &lt;&lt; newSeq)];
+
+    NSLog(@&quot;Adding sequence mask %@&quot;, newSeqMask);
+
+    [sequence addObject:newSeqMask];
+
+    SKAction *wait = [SKAction waitForDuration:2.0];
+    [self runAction:wait completion:^(void){
+        [self nextInSequence:0];
+    }];
+
+}
+</code></pre>
+
+<p>This function is fairly simple. Since we are adding to the sequence that means that the user&rsquo;s turn is over. We reset the userSeqStep and the userTurn variables. Next we need to get a new random location to add to the sequence. Our location bit masks are at bit positions from 1 to 9. So we use arc4random_uniform(8) to give us a random number between 0 and 8 and add 1 to it to get our final range of 1 to 9. Next we need to translate that into a bit position, so we shift 1 left by the randomly generated number. Now we can add the new location bit mask to the sequence array. Now we do another wait action for 2 seconds and then run the nextInSequence function.</p>
+
+<pre><code>-(void)nextInSequence:(NSInteger)seqNum
+{
+    if(seqNum &lt; [sequence count])
+    {
+        NSNumber *nextNum = [sequence objectAtIndex:seqNum];
+        int nextSeqMask = [nextNum intValue];
+        for(SKNode *node in self.children)
+        {
+            if([node.name isEqualToString:@&quot;button&quot;])
+            {
+                MemCircle *button = (MemCircle*)node;
+                if((button.positionBitMask &amp;amp; nextSeqMask) != 0)
+                {
+                    SKAction *grow = [SKAction customActionWithDuration:0.5 actionBlock:^(SKNode *node, CGFloat elapsedTime){
+                        button.glowWidth = button.frame.size.width/4;
+                    }];
+                    SKAction *shrink = [SKAction customActionWithDuration:0.5 actionBlock:^(SKNode *node, CGFloat elapsedTime){
+                        button.glowWidth = 0;
+                    }];
+
+                    SKAction *growshrink = [SKAction sequence:@[grow, shrink]];
+
+                    [button runAction:growshrink completion:^(void){
+                        [self nextInSequence:(seqNum + 1)];
+                    }];
+                }
+            }
+        }
+    }
+    else
+    {
+        userTurn = YES;
+    }
+}
+</code></pre>
+
+<p>The nextInSequence function will show the user the next MemCircle they need to remember in the sequence. We loop through the children in the scene and find anything that is a &ldquo;button&rdquo;. Then we cast it to a MemCircle and check if its location matches the location in the current spot of the sequence. Next we create an action to have the glow of the MemCircle grow for half a second then another action to have the glow shrink back down for half a second. We put these into a sequence and run it against the scene. After the actions are finished we call the nextInSequence function again to show the next MemCircle to remember. If we have reached the end of the sequence the function will make it the player&rsquo;s turn and wait for their input.</p>
+
+<p>This is now a very simple game!! Let&rsquo;s go ahead and run it and see how it works.</p>
+
+<p><img src="http://res.cloudinary.com/bradialabs/image/upload/c_scale,w_540/v1394084994/Memory-Screen_krcqpf.png" alt="" /></p>
+
+<p>This is a very simple rudimentary game at this point. You could add some labels that count down before it starts showing the user the sequence. Then maybe another one to let the user know it is their turn. Add a better scoring system that rewards players that can remember the sequence quicker. It could also use a menu system and a high score storage system, but these things are beyond the scope of the tutorial. The SpriteKit game framework seems to be very easy to work with. I like how easy it is to integrate UIKit object into it. It is also an official game engine supported by Apple, which is always a plus. The main issue with using it is that you will be locked into iOS and iOS 7 and above at that. You can find the full source code on <a href="https://github.com/bradialabs/memory" title="Memory Source">GitHub</a>. I hope you enjoyed the tutorial.</p>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="http://localhost:1313/" style="background-image: url(http://localhost:1313/img/logo.png)"><span class="hidden">Bryan Weber's Picture</span></a>
+    </figure>
+    
+
+    
+
+
+
+
+
+<section class="author">
+  <h4><a href="http://localhost:1313/">Bryan Weber</a></h4>
+  
+  <p>Husband | Father | Engineer</p>
+  
+  <div class="author-meta">
+    <span class="author-location icon-location">Portland, Oregon</span>
+    <span class="author-link icon-link"><a href="http://bradialabs.com">http://bradialabs.com</a></span>
+  </div>
+</section>
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Make%20a%20Memory%20game%20using%20Apple%27s%20SpriteKit&amp;url=http%3a%2f%2flocalhost%3a1313%2fmake-a-memory-game-using-apple-s-spritekit%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fmake-a-memory-game-using-apple-s-spritekit%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=http%3a%2f%2flocalhost%3a1313%2fmake-a-memory-game-using-apple-s-spritekit%2f&amp;description=Make%20a%20Memory%20game%20using%20Apple%27s%20SpriteKit"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=http%3a%2f%2flocalhost%3a1313%2fmake-a-memory-game-using-apple-s-spritekit%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+
+
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">BradiaLabs</a> All rights reserved - 2015</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="http://localhost:1313/js/jquery.js"></script>
+    <script type="text/javascript" src="http://localhost:1313/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="http://localhost:1313/js/index.js"></script>
+    
+</body>
+</html>
+
