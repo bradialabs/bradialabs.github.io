@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>BradiaLabs</title>
-    <link>http://localhost:1313/</link>
+    <link>http://bradialabs.github.io/</link>
     <description>Recent content on BradiaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>All rights reserved - 2015</copyright>
     <lastBuildDate>Sun, 13 Dec 2015 13:13:27 -0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://bradialabs.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>About</title>
-      <link>http://localhost:1313/page/about/</link>
+      <link>http://bradialabs.github.io/page/about/</link>
       <pubDate>Sun, 13 Dec 2015 13:13:27 -0800</pubDate>
       
-      <guid>http://localhost:1313/page/about/</guid>
+      <guid>http://bradialabs.github.io/page/about/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;http://res.cloudinary.com/bradialabs/image/upload/v1390433293/photo_neatls.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;My name is Bryan, and I am an Electrical Engineer who loves writing software. I have written software for the electrical industry for 5+ years. In my spare time I like to learn about new technologies and try them out. I have written iPhone games for fun and various web projects.&lt;/p&gt;
@@ -26,10 +26,10 @@
     
     <item>
       <title>Make a Memory game using Apple&#39;s SpriteKit</title>
-      <link>http://localhost:1313/make-a-memory-game-using-apple-s-spritekit/</link>
+      <link>http://bradialabs.github.io/make-a-memory-game-using-apple-s-spritekit/</link>
       <pubDate>Sun, 13 Dec 2015 12:45:51 -0800</pubDate>
       
-      <guid>http://localhost:1313/make-a-memory-game-using-apple-s-spritekit/</guid>
+      <guid>http://bradialabs.github.io/make-a-memory-game-using-apple-s-spritekit/</guid>
       <description>&lt;!--![](http://res.cloudinary.com/bradialabs/image/upload/c_scale,w_120/v1394084994/Memory-Screen_krcqpf.png)--&gt;
 
 &lt;p&gt;I have made games using various versions of cocos2d, but I wanted to take a look at how Apple&amp;rsquo;s SpriteKit game framework works. In this tutorial I will take you through a simple memory game I made to test out SpriteKit. Our game will contain a grid of 9 colored circles. The circles will light up randomly in a sequence, then let the player repeat the sequence. The game will then add on to the sequence each time the player successfully repeats it. This will go on until the player messes up the sequence and the game is over. Simple right? Let&amp;rsquo;s get started!&lt;/p&gt;
@@ -385,10 +385,10 @@
     
     <item>
       <title>Create Cocos2d-x 3.0 Beta Project</title>
-      <link>http://localhost:1313/create-cocos2d-x-3-0-beta-project/</link>
+      <link>http://bradialabs.github.io/create-cocos2d-x-3-0-beta-project/</link>
       <pubDate>Tue, 08 Dec 2015 18:18:08 -0800</pubDate>
       
-      <guid>http://localhost:1313/create-cocos2d-x-3-0-beta-project/</guid>
+      <guid>http://bradialabs.github.io/create-cocos2d-x-3-0-beta-project/</guid>
       <description>&lt;!--![](http://res.cloudinary.com/bradialabs/image/upload/v1390413067/2dx-logo_wsqnve.png)--&gt;
 
 &lt;p&gt;UPDATE: This has been updated for the 3.0 release. The process for creating a new project has changed slightly since the Beta releases.&lt;/p&gt;
