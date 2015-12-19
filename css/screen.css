@@ -1499,6 +1499,10 @@ body:not(.post-template) .post-title {
         letter-spacing: -1px;
     }
 
+    .page-title img {
+        height: 150px;
+    }
+
     .page-description {
         font-size: 1.8rem;
         line-height: 1.5em;
@@ -1614,6 +1618,10 @@ body:not(.post-template) .post-title {
 
     .blog-logo img {
         height: 30px;
+    }
+
+    .page-title img {
+        height: 100px;
     }
 
     .menu-button {
