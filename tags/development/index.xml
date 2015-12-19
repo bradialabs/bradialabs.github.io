@@ -16,7 +16,7 @@
       <pubDate>Sun, 13 Dec 2015 12:45:51 -0800</pubDate>
       
       <guid>http://bradialabs.com/make-a-memory-game-using-apple-s-spritekit/</guid>
-      <description>&lt;!--![](http://res.cloudinary.com/bradialabs/image/upload/c_scale,w_120/v1394084994/Memory-Screen_krcqpf.png)--&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://res.cloudinary.com/bradialabs/image/upload/c_scale,w_120/v1394084994/Memory-Screen_krcqpf.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;I have made games using various versions of cocos2d, but I wanted to take a look at how Apple&amp;rsquo;s SpriteKit game framework works. In this tutorial I will take you through a simple memory game I made to test out SpriteKit. Our game will contain a grid of 9 colored circles. The circles will light up randomly in a sequence, then let the player repeat the sequence. The game will then add on to the sequence each time the player successfully repeats it. This will go on until the player messes up the sequence and the game is over. Simple right? Let&amp;rsquo;s get started!&lt;/p&gt;
 
