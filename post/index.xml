@@ -7,8 +7,50 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>All rights reserved - 2015</copyright>
-    <lastBuildDate>Sun, 13 Dec 2015 12:45:51 -0800</lastBuildDate>
+    <lastBuildDate>Thu, 12 May 2016 14:59:52 -0700</lastBuildDate>
     <atom:link href="http://bradialabs.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Go Is Awesome</title>
+      <link>http://bradialabs.com/go-is-awesome/</link>
+      <pubDate>Thu, 12 May 2016 14:59:52 -0700</pubDate>
+      
+      <guid>http://bradialabs.com/go-is-awesome/</guid>
+      <description>&lt;p&gt;I recently discovered &lt;a href=&#34;https://golang.org&#34;&gt;Go&lt;/a&gt;, and so far it is awesome! I am a C++
+developer by day and an aspiring cloud developer by night (I am using the the
+term &lt;em&gt;cloud&lt;/em&gt; to refer to the backend services that power today&amp;rsquo;s
+mobile and web applications). Developing with C++ in the highly secure
+environment that I do, I feel very isolated from the exciting world of cloud
+development. My main development computer doesn&amp;rsquo;t even have access to the
+internet (frightening, I know). It is a long paperwork filled process to bring
+in any tools, frameworks or libraries for use in our products. Needless to say
+developing at my day job is far from the fast paced flexible world today&amp;rsquo;s
+cloud developers enjoy.&lt;/p&gt;
+
+&lt;p&gt;I may not be able to join in the fun at my day job, but there is nothing stopping
+me from experimenting the latest and greatest technologies for projects at home.
+This brings me to today&amp;rsquo;s topic, the Go language. Go was &lt;a href=&#34;&amp;quot;https://en.wikipedia.org/wiki/Go_(programming_language&#34;&gt;created out of the
+frustration&lt;/a&gt;#History&amp;rdquo;)
+of working with the complex C++ language. Like C/C++, Go is statically typed
+and compiles down to a native static binary file. That&amp;rsquo;s about as far as the
+similarities &lt;em&gt;go&lt;/em&gt; (see what I did there&amp;hellip;). I&amp;rsquo;m not going to go into details
+comparing the languages since they are being used to solve different problems,
+but I find Go&amp;rsquo;s simplicity absolutely refreshing.&lt;/p&gt;
+
+&lt;p&gt;I plan to use Go for writing RESTful web services for mobile applications and
+single page javascript web applications. Splitting up the backend end service
+as a RESTful API gives you the flexibility to completely decouple the main
+logic from the UI. I have wrote a web application in PHP once only to realize
+that the server side generated HTML meant I had to reimplement all of the logic
+in an API in order to port it over to an iPhone app. I decided it would be easier
+to just start with an API that any front end UI can access.&lt;/p&gt;
+
+&lt;p&gt;I hope to start working on a new project using Go soon and will post any interesting
+tips and tricks I find. In the coming weeks I plan to do detailed comparisons
+of some of the popular Go frameworks out there. The first order of business will
+be finding a great http router and middleware manager.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Make a Memory game using Apple&#39;s SpriteKit</title>
