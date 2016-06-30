@@ -3,8 +3,13 @@
   
   <url>
     <loc>http://bradialabs.com/</loc>
-    <lastmod>2016-05-12T14:59:52-07:00</lastmod>
+    <lastmod>2016-06-30T09:16:31-07:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://bradialabs.com/chromecast-audio/</loc>
+    <lastmod>2016-06-30T09:16:31-07:00</lastmod>
   </url>
   
   <url>
